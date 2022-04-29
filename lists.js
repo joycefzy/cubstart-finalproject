@@ -1,32 +1,32 @@
 //CODE COPIED AND PASTED FROM PLAYGROUND.JS AS A STARTING POINT
 
-const taskName = document.getElementById("todo-name");
+const todoName = document.getElementById("todo-name");
 const submitButton = document.getElementById("submit");
 const clearButton = document.getElementById("clear");
 const undoButton = document.getElementById("undo");
-const taskList = document.getElementById("tasks");
+const todoList = document.getElementById("todo");
 // END PART 5
 
 // BEGIN PART 6
 
 submitButton.addEventListener("click", () => {
-  if (taskName.value != "") {
-    const task = document.createElement("li");
-    task.innerHTML = taskName.value;
-    taskList.appendChild(task);
+  if (todoName.value != "") {
+    const todo = document.createElement("li");
+    todo.innerHTML = todoName.value;
+    todoList.appendChild(todo);
     document.getElementById("todo-name").value = "";
   }
 });
 
 undoButton.addEventListener("click", () => {
-  if (taskList.length != 0) {
-    taskList.removeChild(taskList.lastElementChild);
+  if (todoList.length != 0) {
+    todoList.removeChild(todoList.lastElementChild);
     document.getElementById("todo-name").value = "";
   }
 });
 
 clearButton.addEventListener("click", () => {
-  taskList.replaceChildren();
-  taskName.value = "";
+  todoList.replaceChildren();
+  todoName.value = "";
   document.getElementById("todo-name").value = "";
 });
