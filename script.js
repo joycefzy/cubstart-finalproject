@@ -5,7 +5,7 @@
     //if time crunch just drop the maps I guess, or just make a link that plugs it into google maps
 
 //Some demo code I found for changing backgrounds randomly
-{/* <html>
+/*{ <html>
     <head>
         <script type="text/javascript"> 
             var totalCount = 8;
@@ -23,7 +23,7 @@
 <script type="text/javascript"> 
 ChangeIt();
 </script> 
-</html> */}
+</html> } */
 
 // const workload_button = document.getElementById("Workload");
 // const dueDate_button = document.getElementById("Due dates");
