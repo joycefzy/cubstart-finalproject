@@ -7,21 +7,31 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="wrapper">
+<body style="background-image: url('Cal1.jpg');">
+    <div>
         <!-- Navigation -->
-        <class class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="workload.html">Workload</a></li>
-            <li><a href="DueDate.html">Due Dates</a></li>
-            <li><a href="maps.html">Maps</a></li>
-        </ul>
-        </class>
+        <body class="light" id="top">
+            <header class="header center">
+              <h3>
+                <p>CalTask</p>
+              </h3>
+              <nav class="nav center">
+                <ul class="nav__list center">
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="index.html">Home</a>
+                  </li>
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="DueDate.html">Due Dates</a>
+                  </li>
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="maps.html">Map</a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+        </body>
         <!-- <ul id="tasks"></ul> -->
     </div>
-
-    <div class = "top-box">Current Assignments:</div>
         
     <div class="assignment-box">
         <div class = "header-above-box">
@@ -40,6 +50,7 @@
                     </div>
                 </div>
             </div>
+    
         
         <!--<div id="todo-list">
             <h3>Due Date List</h3>
@@ -63,6 +74,7 @@
         </div>
         <button class="button" id="add-btn">Add</button>
     </div>
+    <div class = "top-box">Current Assignments:</div>
 </body>
 
     <!--need to figure out whether need different ids for each list we're keeping track of-->

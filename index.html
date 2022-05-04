@@ -7,40 +7,41 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="wrapper">
+<body style="background-image: url('Cal1.jpg');">
+    <div>
         <!-- Navigation -->
-        <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="workload.html">Workload</a></li>
-            <li><a href="DueDate.html">Due Dates</a></li>
-            <li><a href="maps.html">Maps</a></li>
-        </ul>
-        </nav>
+        <body class="light" id="top">
+            <header class="header center">
+              <h3>
+                <p>CalTask</p>
+              </h3>
+              <nav class="nav center">
+                <ul class="nav__list center">
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="index.html">Home</a>
+                  </li>
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="DueDate.html">Due Dates</a>
+                  </li>
+                  <li class="nav__list-item">
+                    <a class="link link--nav" href="maps.html">Map</a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+        </body>
 
-        <!-- Top Container -->
-        <section class="top-container">
-        <header class="showcase">
+    <section>
+        <header class="welcome">
             <h1>Welcome Name</h1>
         </header>
-        <div class="top-box top-box-a">
-            <h4>This Week's Workload</h4>
-            <!--check the specific list for workloads-->
-            <p class="price"></p>
-            <a href="" class="btn">More</a>
-            <!--Go to Workload page? or expand the box, probably easiest to go to the page-->
-        </div>
-        <div class="top-box top-box-b">
+        <div class="duedate-box">
             <h4>In ___ days</h4>
-            <!--check the specific list for due dates (can use cubstart as default)-->
-            <p class="price">Cubstart HW Due</p>
-            <a href="" class="btn">More</a>
-            <!--Go to Due Dates page? or expand the box, probably easiest to go to the page-->
+            <p class="duedate">Cubstart HW Due</p>
+            <a href="DueDate.html" class="btn">More</a>
         </div>
-        </section>
-    </div>
+    </section>
     <!-- Wrapper Ends -->
-</body>
+
 </html>
     
