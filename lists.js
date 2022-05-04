@@ -2,7 +2,7 @@
 
 const todoName = document.getElementById("todo-name");
 const todoDate = document.getElementById("todo-date");
-const submitButton = document.getElementById("submit");
+const submitButton = document.getElementById("add-btn");
 const clearButton = document.getElementById("clear");
 const undoButton = document.getElementById("undo");
 const todoDict = document.getElementById("todo");

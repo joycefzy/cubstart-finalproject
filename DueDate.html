@@ -13,7 +13,7 @@
         <class class="main-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="workload.html">Workload</a></li>
+            <li><a href="workload.html">Workload Settings</a></li>
             <li><a href="DueDate.html">Due Dates</a></li>
             <li><a href="maps.html">Maps</a></li>
         </ul>
@@ -26,8 +26,8 @@
     <div class="assignment-box">
         <div class = "header-above-box">
             <h1>Assignment Name</h1>
-            <input type="text" id="task-name" />
-            <script src="script.js"></script>
+            <input type="text" id="todo-name" class = "task-box"/>
+            <script src=" lists.js"></script>
         </div>
             <div class = "header-above-box">
                 <h1>Type of Assignment</h1>
@@ -57,11 +57,12 @@
         </div>-->
 
         <div class = "header-above-box">
-            <h1>Due Date</h1>
-            <input type="text" id="task-name" />
+            <h1>Due Date (mm/dd/yyyy format)</h1>
+            <input type="text" id="todo-date" class = "task-box"/>
             <script src="script.js"></script>
         </div>
         <button class="button" id="add-btn">Add</button>
+        <script src="lists.js"></script>
     </div>
 </body>
 
