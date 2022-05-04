@@ -34,6 +34,18 @@
     display: grid;
     grid-gap: 20px;
   }
+
+  #nav-button {
+    cursor: pointer;
+    color: orange;
+    size: 500px;
+  }
+
+  /*Google Maps*/
+  #map{
+    height: 100%;
+    display: inline;
+  }
   
   /* Navigation */
   .main-nav ul {
@@ -101,11 +113,15 @@
   /* Top Box */
   .top-box {
     background: var(--primary);
+    background-color: lightblue;
     display: grid;
-    align-items: center;
-    justify-items: center;
+    align-items: left;
+    justify-items: left;
     box-shadow: var(--shadow);
     padding: 1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24pt;
+
   }
   
   .top-box .price {
@@ -119,3 +135,85 @@
   .top-box-b {
     grid-area: top-box-b;
   }
+
+  .assignment-box{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: left;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*grid-area: b;*/
+  }
+
+  .type-dropdown{
+    font-size: medium;
+  }
+
+  .header-above-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .side-box {
+    grid-area: b;
+  }
+
+  #add-btn {
+    cursor: pointer;
+    background: lightblue;
+    color: darkgoldenrod;
+    size: 60px;
+    font: 100;
+    font-size: xx-large;
+    padding: 40px;
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .dropbtn {
+    color: Black;
+    width: 260px;
+    height: 80px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: lightcoral;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+
+  #task-name {
+    width: 400px;
+    height: 100px;
+    font-size: 24pt;
+  }
+
+  .show {display:block;}

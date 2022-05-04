@@ -18,7 +18,33 @@
             <li><a href="maps.html">Maps</a></li>
         </ul>
         </class>
-        <div class = "top-box">
-
-        </div>
+        <!-- <ul id="tasks"></ul> -->
     </div>
+
+    <div class = "top-box">Current Assignments:</div>
+        
+        <div class="assignment-box">
+            <div class = "header-above-box">
+                <h1>Assignment Name</h1>
+                <input type="text" id="task-name" />
+                <script src="script.js"></script>
+            </div>
+            <div class = "header-above-box">
+                <h1>Type of Assignment</h1>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Select</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a>Project</a>
+                        <a>Lab</a>
+                        <a>Homework</a>
+                    </div>
+                </div>
+            </div>
+            <div class = "header-above-box">
+                <h1>Due Date</h1>
+                <input type="text" id="task-name" />
+                <script src="script.js"></script>
+            </div>
+            <button class="button" id="add-btn">Add</button>
+        </div>
+    </body>
