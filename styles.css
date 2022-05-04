@@ -1,19 +1,26 @@
 /* CSS Variables */
+
 :root {
-    --primary: #ddd;
-    --dark: #333;
+    --primary: rgb(244, 185, 71);
+    --dark: rgb(15, 50, 95);
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  }
+
+  .header {
+    height: 4em;
+    background-color: var(--dark);
+    margin: 0 auto;
   }
   
   html {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--dark);
+    color: var(--primary);
   }
   
   body {
-    background: #ccc;
+    background: rgb(255, 255, 255);
     margin: 30px 50px;
     line-height: 1.4;
   }
@@ -29,90 +36,84 @@
   img {
     max-width: 100%;
   }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
   
   .wrapper {
     display: grid;
     grid-gap: 20px;
   }
 
-  #nav-button {
-    cursor: pointer;
-    color: orange;
-    size: 500px;
-  }
-
-  /*Google Maps*/
+  /* Google Maps */
   #map{
     height: 100%;
     display: inline;
   }
   
   /* Navigation */
-  .main-nav ul {
-    display: grid;
-    grid-gap: 20px;
-    padding: 0;
-    list-style: none;
-    grid-template-columns: repeat(4, 1fr);
+  .nav__list {
+    margin-right: 5em;
   }
   
-  .main-nav a {
-    background: var(--primary);
-    display: block;
-    text-decoration: none;
-    padding: 0.8rem;
-    text-align: center;
-    color: var(--dark);
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    box-shadow: var(--shadow);
+  .nav__list-item {
+    margin-left: 5em;
+    margin-top: 1.25em;
   }
-  
-  .main-nav a:hover {
-    background: var(--dark);
-    color: var(--light);
-  }
-  
-  /* Top Container */
-  .top-container {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-areas:
-      'showcase showcase top-box-a'
-      'showcase showcase top-box-b';
-  }
-  
-  /* Showcase */
-  .showcase {
-    grid-area: showcase;
-    min-height: 400px;
-    background: url(Cal1.jpg);
-    /* background: url(images/<?php echo $selectedBg; ?>) no-repeat; */
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
+
+  .center {
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    box-shadow: var(--shadow);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .link {
+    color: var(--primary);
+    padding: 0 0 0.3em 0;
+    position: relative;
   }
   
-  .showcase h1 {
-    font-size: 4rem;
-    margin-bottom: 0;
+  .link:hover {
+    color: var(--primary);
+  }
+    
+  .link::before {
+    content: "";
+    display: inline;
+    width: 0%;
+    height: 0.2em;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary);
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .link:hover::before,
+  .link:focus::before {
+    width: 100%;
+  }
+    
+  .link--nav {
+    font-weight: 500;
+  }
+  
+  /* Main page */
+  .welcome {
+    font-size: 3rem;
+    margin-top: 250px;
     color: var(--light);
   }
   
-  .showcase p {
-    font-size: 1.3rem;
-    margin-top: 0;
-    color: var(--light);
-  }
-  
-  /* Top Box */
-  .top-box {
+  /* duedate box */
+  .duedate-box {
     background: var(--primary);
+    margin-top: 10px;
     background-color: lightblue;
     display: grid;
     align-items: left;
@@ -122,18 +123,6 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 24pt;
 
-  }
-  
-  .top-box .price {
-    font-size: 2.5rem;
-  }
-  
-  .top-box-a {
-    grid-area: top-box-a;
-  }
-  
-  .top-box-b {
-    grid-area: top-box-b;
   }
 
   .assignment-box{
@@ -152,6 +141,8 @@
   }
 
   .header-above-box {
+    height: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -163,9 +154,14 @@
 
   #add-btn {
     cursor: pointer;
-    background: lightblue;
-    color: darkgoldenrod;
-    size: 60px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: center;
+    background: var(--dark);
+    color: var(--primary);
+    text-align: center;
+    height: 30px;
+    /*size: 60px;*/
     font: 100;
     font-size: xx-large;
     padding: 40px;
@@ -184,7 +180,7 @@
   
   /* Dropdown button on hover & focus */
   .dropbtn:hover, .dropbtn:focus {
-    background-color: lightcoral;
+    background-color: var(--primary);
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -206,7 +202,8 @@
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd}
   
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content 
+  container when the user clicks on the dropdown button) */
   .show {display:block;}
 
 
