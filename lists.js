@@ -16,7 +16,6 @@ addButton.addEventListener("click", () => {
     due.innerHTML = [dueName.value, dueType.value, dueDate.value];
     dueList.appendChild(due);
     document.getElementById("task-name").value = ""; //just clears the search boxes after submitting
-    //Was working with text but stopped when changed to dictionary.
   }
 });
 
