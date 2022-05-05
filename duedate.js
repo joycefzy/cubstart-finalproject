@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
     const inputDate = document.querySelector("#new-task-date");
 	const inputType = document.querySelector("#task-types");
 	const list_el = document.querySelector("#tasks");
+	const taskList = new Array();
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
@@ -13,6 +14,7 @@ window.addEventListener('load', () => {
         const taskDate = inputDate.value;
 		const taskType = inputType.value;
 		const task = taskType + " Due: " + taskDate + ", " + taskName ;
+		const taskL = [taskType, taskDate, taskName]
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
@@ -47,7 +49,8 @@ window.addEventListener('load', () => {
 		task_el.appendChild(task_actions_el);
 
 		list_el.appendChild(task_el);
-		taskShort();
+		taskList.push(taskL)
+		taskShort(taskList);
 
 		inputName.value = '';
         inputDate.value = '';
@@ -84,11 +87,10 @@ function askName() {
     } else {
         document.getElementById("n").innerHTML = "Welcome, Stranger!";
     }
-	taskShort();
 }
-//list_el is showing undefined, maybe create an outside variable that applies to it?
-function taskShort() {
-console.log("taskShort loaded")
+//Bringing in a div element doesn't help me I need them in an array or something
+function taskShort(list_el) {
+console.log("taskShort loaded" + list_el)
 if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)){
 	console.log("list undef")
 	document.getElementById('duedays').innerHTML = "No Assignments upcoming!";
@@ -96,22 +98,30 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 } else {
 	const today = new Date();
 	//TODO calculate numDays
-	console.log("list good")
+	console.log("list good, length:" + list_el.length + "list:" + list_el)
 	var currDateDiff = 999999
-	//for (let i = 0, i < list_el.length; i++ )
-		//var currDate = new Date([parse through input])
-		//var dateDifference;
-		//if (today < currDate) {
-		//	dateDifference = today - currDate;
-		//}
-		//else{
-		//	dateDifference = currDate - today;
-		//}
-		//if (dateDifference < currDateDiff) {
-		//	currDateDiff = dateDifference;
-		//}
-	//}
-	document.getElementById('duedays').innerHTML = "In " + numDays + " days";
-	document.getElementById('duedate').innerHTML = taskName + "Due"
+	var currTaskName = "default"
+	//^^^placeholders
+	for (let i = 0; i < list_el.length; i++) {
+		console.log(list_el[i][1])
+		var currDatesArr = (list_el[i][1].taskDate).split('-');
+		var currDate = new Date(currDatesArr[2], currDatesArr[1], currDatesArr[0])
+		console.log("currDatesArr:" + currDatesArr)
+		var dateDifference;
+		if (today < currDate) {
+			dateDifference = today - currDate;
+		}
+		else{
+			dateDifference = currDate - today;
+		}
+		if (dateDifference < currDateDiff) {
+			currDateDiff = dateDifference;
+			currTaskName = list.el[i].taskName
+		}
+	}
+	console.log("days differce:" + currDateDiff)
+	console.log("task name:" + currTaskName)
+	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
+	document.getElementById('duedate').innerHTML = currTaskName + "Due"
 }
 }
