@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
+    <!--
     <script>
         // add a prompt for username and use it in the welcome page. 
         var name = prompt("Please enter your name");
     </script>
+  -->
 </head>
 <body style="background-image: url('Cal1.jpg');">
     <div>
         <!-- Navigation -->
-        <body class="light" id="top">
+        <body  onload="askName()" class="light" id="top">
             <header class="header center">
               <h3>
                 <p>CalTask</p>
@@ -38,14 +40,13 @@
     <section>
         <header class="welcome">
             <h1 id = "n"></h1>
-            <script>
-                document.getElementById('n').innerHTML = "Welcome " + name + "!";</script>
         </header>
         <div class="duedate-box">
             <h4>In ___ days</h4>
-            <p class="duedate">Cubstart HW Due</p>
+            <p class="duedate">[TASK NAME] due</p>
             <a href="DueDate.html" class="btn">More</a>
         </div>
     </section>
+    <script src="index.js"></script>
 </html>
     
