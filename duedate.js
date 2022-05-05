@@ -47,6 +47,7 @@ window.addEventListener('load', () => {
 		task_el.appendChild(task_actions_el);
 
 		list_el.appendChild(task_el);
+		taskShort();
 
 		inputName.value = '';
         inputDate.value = '';
@@ -67,3 +68,50 @@ window.addEventListener('load', () => {
 		});
 	});
 });
+
+//Index Functions, like asking your name and filling in the box info.
+function askName() {
+    console.log("ran askName")
+    let name = sessionStorage.getItem('name');
+
+    if (name === null) {
+        name = prompt("Please enter your name");
+    }
+
+    if (name != null) {
+        document.getElementById('n').innerHTML = "Welcome " + name + "!";
+        sessionStorage.setItem('name', name);
+    } else {
+        document.getElementById("n").innerHTML = "Welcome, Stranger!";
+    }
+	taskShort();
+}
+//list_el is showing undefined, maybe create an outside variable that applies to it?
+function taskShort() {
+console.log("taskShort loaded")
+if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)){
+	console.log("list undef")
+	document.getElementById('duedays').innerHTML = "No Assignments upcoming!";
+	//document.getElementById('duedate').innerHTML = "";
+} else {
+	const today = new Date();
+	//TODO calculate numDays
+	console.log("list good")
+	var currDateDiff = 999999
+	//for (let i = 0, i < list_el.length; i++ )
+		//var currDate = new Date([parse through input])
+		//var dateDifference;
+		//if (today < currDate) {
+		//	dateDifference = today - currDate;
+		//}
+		//else{
+		//	dateDifference = currDate - today;
+		//}
+		//if (dateDifference < currDateDiff) {
+		//	currDateDiff = dateDifference;
+		//}
+	//}
+	document.getElementById('duedays').innerHTML = "In " + numDays + " days";
+	document.getElementById('duedate').innerHTML = taskName + "Due"
+}
+}

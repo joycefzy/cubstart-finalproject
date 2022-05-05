@@ -13,3 +13,10 @@ function askName() {
         document.getElementById("n").innerHTML = "Welcome, Stranger!";
     }
 }
+
+//if (taskList) == null or taskList.length == 0 {
+    //document.getElementById('duedays').innerHTML = "No Assignments upcoming!";
+//} else {
+    //document.getElementById('duedays').innerHTML = "In " + numDays + " days";
+    //document.getElementById('duedate').innerHTML = taskName "Due"
+//}
