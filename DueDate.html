@@ -11,7 +11,7 @@
   <!-- Navigation -->
     <header class="header center">
       <h3>
-        <p>CalTask</p>
+        <p>&nbsp&nbsp&nbspCalTask</p>
       </h3>
       <nav class="nav center">
         <ul class="nav__list center">
@@ -47,11 +47,16 @@
         id="new-task-name"
         name="new-task-name" 
         placeholder="New assignment" />
-      <input
+      <div class = "vertical stack">
+        <label for="new-task-date">When is it due?</label>
+        <input type="date" id="new-task-date" name="new-task-date">
+      </div>
+     
+      <!-- <input
         type="text"
         id="new-task-date"
         name="new-task-date" 
-        placeholder="When is it due? (MM/DD/YYYY)" />
+        placeholder="When is it due? (MM/DD/YYYY)" /> -->
       <input
         type="submit"
         id="new-task-submit"
