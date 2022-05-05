@@ -7,65 +7,113 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title> 
 </head>
-<body style="background-image: url('Cal1.jpg');">
-    <div>
-        <!-- Navigation -->
-        <body class="light" id="top">
-            <header class="header center">
-              <h3>
-                <p>CalTask</p>
-              </h3>
-              <nav class="nav center">
-                <ul class="nav__list center">
-                  <li class="nav__list-item">
-                    <a class="link link--nav" href="index.html">Home</a>
-                  </li>
-                  <li class="nav__list-item">
-                    <a class="link link--nav" href="DueDate.html">Due Dates</a>
-                  </li>
-                  <li class="nav__list-item">
-                    <a class="link link--nav" href="maps.html">Map</a>
-                  </li>
-                </ul>
-              </nav>
-            </header>
-        </body>
-        <!-- <ul id="tasks"></ul> -->
-    </div>
+<body class="light" id="top" style="background-image: url('Cal1.jpg');">
+  <!-- Navigation -->
+    <header class="header center">
+      <h3>
+        <p>CalTask</p>
+      </h3>
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="index.html">Home</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="DueDate.html">Due Dates</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="maps.html">Map</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  <!-- <ul id="tasks"></ul> -->
         
     <div class="assignment-box">
-        <div class = "header-above-box">
-            <h1>Assignment Name</h1>
-            <input type="text" id="task-name" />
-        </div>
-            <div class = "header-above-box">
-                <h1>Type of Assignment:</h1>
-                <!-- <div class="dropdown">
-                    <button onclick="drop()" id = "dropdn" class="dropbtn">Select</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a>Project</a>
-                        <a>Lab</a>
-                        <a>Homework</a>
-                    </div>
-                </div> -->
+        <h1>My Assignments:</h1>
+    </div>
+    <div class="assignment-box">
+      <label for="task-types"></label>
+      <select name="task-types" id="task-types">
+        <option value="Project">Project</option>
+        <option value="Lab">Lab</option>
+        <option value="Homework">Homework</option>
+      </select>
+      
+    </div>
+    <form id="new-task-form">
+      <input
+        type="text"
+        id="new-task-name"
+        name="new-task-name" 
+        placeholder="New assignment" />
+      <input
+        type="text"
+        id="new-task-date"
+        name="new-task-date" 
+        placeholder="When is it due? (MM/DD/YYYY)" />
+      <input
+        type="submit"
+        id="new-task-submit"
+        value="add" />
+    </form>
+<!--
+        <input
+          type="text"
+          id="new-task-date"
+          placeholder="When is it due?" />
+        
+          <h1>Type of Assignment:</h1>
+          <label for="task-types"></label>
+          <select name="task-types" id="task-types">
+            <option value="project">Project</option>
+            <option value="lab">Lab</option>
+            <option value="homework">Homework</option>
+          </select>
+      </div>
 
-                <label for="assignment-types"></label>
-                <select name="assignment-types" id="assignment-types">
-                  <option value="project">Project</option>
-                  <option value="lab">Lab</option>
-                  <option value="homework">Homework</option>
-                </select>
-            </div>      
-        <div class = "header-above-box">
-            <h1>Due Date</h1>
-            <input type="text" id="task-date" />
-        </div>
-        <button class="submit-btn" id="add-btn">Add</button>
+      <div class = "header-above-box">
+        <h1>Due Date</h1>
+        <input type="text" id="task-date" />
+      </div>
+
+      <div class = "header-above-box">
+          <h1>Assignment Name</h1>
+          <input type="text" id="task-name" />
+      </div>
+
+      <button class="submit-btn" id="add-btn">Add</button>
 
       </div>
       <div class = "current-assignment-box">Current Assignments:</div>
+      <ul id="dues"></ul>
+      -->
+
+
+      <!-- Current Assignment List -->
+      
+      <main>
+        <section class="task-list">
+          <div id="tasks">
+            <!-- <div class="task">
+					<div class="content">
+						<input 
+							type="text" 
+							class="text" 
+							value="A new task"
+							readonly>
+					</div>
+					<div class="actions">
+						<button class="edit">Edit</button>
+						<button class="delete">Delete</button>
+					</div>
+				</div> -->
+          </div>
+        </section>
+      </main>
+      
 </body>
-<script src="lists.js"></script>
+<script src="duedate.js"></script>
 </html>
 
 

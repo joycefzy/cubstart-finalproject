@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body style="background-image: url('Cal1.jpg');">
+<body onload="askName()" style="background-image: url('Cal1.jpg');">
     <div>
         <!-- Navigation -->
         <body class="light" id="top">
@@ -33,15 +33,14 @@
 
     <section>
         <header class="welcome">
-            <h1>Welcome Name</h1>
+            <h1 id = "n"></h1>
         </header>
         <div class="duedate-box">
-            <h4>In ___ days</h4>
-            <p class="duedate">Cubstart HW Due</p>
+            <h4 id = "duedays">No Assignments Upcoming! :)</h4>
+            <p class="duedate"></p>
             <a href="DueDate.html" class="btn">More</a>
         </div>
     </section>
-    <!-- Wrapper Ends -->
-
+    <script src="duedate.js"></script>
 </html>
     
