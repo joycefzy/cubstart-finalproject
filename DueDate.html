@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Document</title> 
 </head>
 <body style="background-image: url('Cal1.jpg');">
     <div>
@@ -37,30 +37,38 @@
         <div class = "header-above-box">
             <h1>Assignment Name</h1>
             <input type="text" id="task-name" />
-            <script src="script.js"></script>
         </div>
             <div class = "header-above-box">
-                <h1>Type of Assignment</h1>
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Select</button>
+                <h1>Type of Assignment:</h1>
+                <!-- <div class="dropdown">
+                    <button onclick="drop()" id = "dropdn" class="dropbtn">Select</button>
                     <div id="myDropdown" class="dropdown-content">
                         <a>Project</a>
                         <a>Lab</a>
                         <a>Homework</a>
                     </div>
-                </div>
-            </div>
+                </div> -->
 
+                <label for="task-types"></label>
+                <select name="task-types" id="task-types">
+                  <option value="project">Project</option>
+                  <option value="lab">Lab</option>
+                  <option value="homework">Homework</option>
+                </select>
+            </div>      
         <div class = "header-above-box">
             <h1>Due Date</h1>
             <input type="text" id="task-date" />
-            <script src="script.js"></script>
         </div>
-        <button class="button" id="add-btn">Add</button>
-    </div>
-    <div class = "top-box">Current Assignments:</div>
-</body>
+        <button class="submit-btn" id="add-btn">Add</button>
 
-    <!--need to figure out whether need different ids for each list we're keeping track of-->
+      </div>
+      <div class = "current-assignment-box">Current Assignments:</div>
+      <ul id="dues"></ul>
+</body>
+<script src="lists.js"></script>
+</html>
+
+
     
 

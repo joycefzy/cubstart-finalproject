@@ -1,216 +1,266 @@
 /* CSS Variables */
 
 :root {
-    --primary: rgb(244, 185, 71);
-    --dark: rgb(15, 50, 95);
-    --light: #fff;
-    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  }
+  --primary: rgb(244, 185, 71);
+  --dark: rgb(15, 50, 95);
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
 
-  .header {
-    height: 4em;
-    background-color: var(--dark);
-    margin: 0 auto;
-  }
+.header {
+  height: 4em;
+  background-color: var(--dark);
+  margin: 0 auto;
+  border-radius: 50px;
+}
   
-  html {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--primary);
-  }
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+}
   
-  body {
-    background: rgb(255, 255, 255);
-    margin: 30px 50px;
-    line-height: 1.4;
-  }
+body {
+  background: rgb(255, 255, 255);
+  margin: 30px 50px;
+  line-height: 1.4;
+}
   
-  .btn {
-    background: var(--dark);
-    color: var(--light);
-    padding: 0.6rem 1.3rem;
-    text-decoration: none;
-    border: 0;
-  }
+.btn {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
   
-  img {
-    max-width: 100%;
-  }
+img {
+  max-width: 100%;
+}
 
-  ul {
-    list-style-type: none;
-  }
+ul {
+  list-style-type: none;
+}
 
-  a {
-    text-decoration: none;
-  }
-  
-  
-  .wrapper {
-    display: grid;
-    grid-gap: 20px;
-  }
+a {
+  text-decoration: none;
+}
 
-  /* Google Maps */
-  #map{
-    height: 100%;
-    display: inline;
-  }
-  
-  /* Navigation */
-  .nav__list {
-    margin-right: 5em;
-  }
-  
-  .nav__list-item {
-    margin-left: 5em;
-    margin-top: 1.25em;
-  }
+/* close/delete button for due date list */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
 
-  .center {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.close:hover {
+  background-color: var(--dark);
+  color: white;
+}
 
-  .link {
-    color: var(--primary);
-    padding: 0 0 0.3em 0;
-    position: relative;
-  }
-  
-  .link:hover {
-    color: var(--primary);
-  }
-    
-  .link::before {
-    content: "";
-    display: inline;
-    width: 0%;
-    height: 0.2em;
-    position: absolute;
-    bottom: 0;
-    background-color: var(--primary);
-    transition: width 0.5s ease-in-out;
-  }
-  
-  .link:hover::before,
-  .link:focus::before {
-    width: 100%;
-  }
-    
-  .link--nav {
-    font-weight: 500;
-  }
-  
-  /* Main page */
-  .welcome {
-    font-size: 3rem;
-    margin-top: 250px;
-    color: var(--light);
-  }
-  
-  /* duedate box */
-  .duedate-box {
-    background: var(--primary);
-    margin-top: 10px;
-    background-color: lightblue;
-    display: grid;
-    align-items: left;
-    justify-items: left;
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 24pt;
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
 
-  }
+/* Google Maps */
+#map{
+  height: 100%;
+  display: inline;
+}
 
-  .assignment-box{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: left;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /*grid-area: b;*/
-  }
+/* Navigation */
+.nav__list {
+  margin-right: 5em;
+}
 
-  .type-dropdown{
-    font-size: medium;
-  }
+.nav__list-item {
+  margin-left: 5em;
+  margin-top: 1.25em;
+}
 
-  .header-above-box {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .side-box {
-    grid-area: b;
-  }
+.link {
+  color: var(--primary);
+  padding: 0 0 0.3em 0;
+  position: relative;
+}
 
-  #add-btn {
-    cursor: pointer;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: center;
-    background: var(--dark);
-    color: var(--primary);
-    text-align: center;
-    height: 30px;
-    /*size: 60px;*/
-    font: 100;
-    font-size: xx-large;
-    padding: 40px;
-    border-radius: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-  .dropbtn {
-    color: Black;
-    width: 260px;
-    height: 80px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
+.link:hover {
+  color: var(--primary);
+}
   
-  /* Dropdown button on hover & focus */
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: var(--primary);
-  }
+.link::before {
+  content: "";
+  display: inline;
+  width: 0%;
+  height: 0.2em;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--primary);
+  transition: width 0.5s ease-in-out;
+}
+
+.link:hover::before,
+.link:focus::before {
+  width: 100%;
+}
   
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content 
-  container when the user clicks on the dropdown button) */
-  .show {display:block;}
+.link--nav {
+  font-weight: 500;
+}
+
+/* Main page */
+.welcome {
+  font-size: 3rem;
+  margin-top: 250px;
+  color: var(--light);
+}
+
+/* duedate box */
+.duedate-box {
+  background: var(--primary);
+  margin-top: 10px;
+  background-color: lightblue;
+  display: grid;
+  align-items: left;
+  justify-items: left;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 24pt;
+  border-radius: 50px;
+}
+
+.assignment-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: left;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.current-assignment-box {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 24pt;
+  text-align: center;
+  background: var(--primary);
+  color: rgb(226, 152, 3);
+  margin-top: 100px;
+  height: 500px;
+  flex-wrap: wrap;
+  background-color: lightblue;
+  border-radius: 50px;
+}
+
+.type-dropdown{
+  font-size: medium;
+}
+
+.header-above-box {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-box {
+  grid-area: b;
+}
+
+.submit-btn {
+  cursor: pointer;
+  margin-left: 5px;
+  display: flex;
+  margin-top: 90px;
+  flex-direction: column;
+  background: var(--dark);
+  color: var(--primary);
+  height: 5px;
+  font-size: large;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 
-  #task-name {
-    width: 400px;
-    height: 100px;
-    font-size: 24pt;
-  }
 
-  .show {display:block;}
+.dropbtn {
+  color: Black;
+  width: 220px;
+  height: 70px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content::before {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/*.dropdown-content:hover::before,
+.dropdown-content:focus::before {
+  display: contents;
+}
+*/
+
+/* Links inside the dropdown part I just added */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: var(--primary);
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: var(--dark)}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content 
+container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+#task-name {
+  width: 200px;
+  height: 60px;
+  font-size: 24pt;
+}
+
+#task-date {
+  width: 200px;
+  height: 60px;
+  font-size: 24pt;
+}
+
+.show {display:block;}

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
+    <script>
+        // add a prompt for username and use it in the welcome page. 
+        var name = prompt("Please enter your name");
+    </script>
 </head>
 <body style="background-image: url('Cal1.jpg');">
     <div>
@@ -33,7 +37,9 @@
 
     <section>
         <header class="welcome">
-            <h1>Welcome Name</h1>
+            <h1 id = "n"></h1>
+            <script>
+                document.getElementById('n').innerHTML = "Welcome " + name + "!";</script>
         </header>
         <div class="duedate-box">
             <h4>In ___ days</h4>
@@ -41,7 +47,5 @@
             <a href="DueDate.html" class="btn">More</a>
         </div>
     </section>
-    <!-- Wrapper Ends -->
-
 </html>
     

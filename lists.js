@@ -1,36 +1,59 @@
-//CODE COPIED AND PASTED FROM PLAYGROUND.JS AS A STARTING POINT
-
-const dueDateName = document.getElementById("task-name");
+const dueName = document.getElementById("task-name");
+const dueType = document.getElementById("task-types");
 const dueDate = document.getElementById("task-date");
-const addButton = document.getElementById("add");
-//const clearButton = document.getElementById("clear");
-//const undoButton = document.getElementById("undo");
-//const todoDict = document.getElementById("todo");
+const addButton = document.getElementById("add-btn");
+const dueList = document.getElementById("dues")
 
 addButton.addEventListener("click", () => {
     console.log("clicked add")
   if (dueDateName.value != "") {
-    const due = document.createElement("dict");
-    due.innerHTML = dueDateName.value, dueDate.value;
-    dueDict[dueDateName.value] = dueDate.value;
-    //document.getElementById("todo-name").value = "";
-    //put back in after testing over and do one for date too
+    console.log("tried to add")
+    const due = document.createElement("li")
+    //const due = document.createElement("lst");
+    //lst = list dict = dictionary
+    //due.innerHTML = dueDateName.value, dueDate.value; DICTIONARY
+    //dueDict[dueDateName.value] = dueDate.value; DICTONARY (doesn't work yet)
+    due.innerHTML = [dueName.value, dueType.value, dueDate.value];
+    dueList.appendChild(due);
+    document.getElementById("task-name").value = ""; //just clears the search boxes after submitting
     //Was working with text but stopped when changed to dictionary.
-    console.log(dueDict);
   }
 });
 
-/** 
-undoButton.addEventListener("click", () => {
-  if (todoDict.length != 0) {
-    todoDict.removeChild(todoDict.lastElementChild);
-    document.getElementById("todo-name").value = "";
+// for deleting things in due date list 
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
   }
-});
+}
 
-clearButton.addEventListener("click", () => {
-  todoDict.replaceChildren();
-  todoName.value = "";
-  document.getElementById("todo-name").value = "";
-});
-*/
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
+
+/**
+const addButton = document.getElementById("add-btn");
+
+addButton.addEventListener("click", async () => {
+    // empty card
+    // get activity from API
+    // process this data into 'p' elements
+    // append the text elements as children of the card
+    card.replaceChildren();
+    const activity = await fetchActivity();
+    // BEGIN PART 8
+    for (const [key, value] of Object.entries(activity)) {
+        const detail = document.createElement("p");
+        detail.innerHTML = key + ": " + value;
+        card.appendChild(detail);
+    }
+})
+  
+  //window.initMap = initMap;*/
