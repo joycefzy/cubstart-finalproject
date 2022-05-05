@@ -2,6 +2,7 @@ window.addEventListener('load', () => {
 	const form = document.querySelector("#new-task-form");
 	const inputName = document.querySelector("#new-task-name");
     const inputDate = document.querySelector("#new-task-date");
+	const inputType = document.querySelector("#task-types");
 	const list_el = document.querySelector("#tasks");
 
 	form.addEventListener('submit', (e) => {
@@ -10,7 +11,8 @@ window.addEventListener('load', () => {
 
         const taskName = inputName.value;
         const taskDate = inputDate.value;
-		const task = "Due: " + taskDate + ", " + taskName;
+		const taskType = inputType.value;
+		const task = taskType + " Due: " + taskDate + ", " + taskName ;
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
