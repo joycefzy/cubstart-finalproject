@@ -105,6 +105,7 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 	for (let i = 0; i < list_el.length; i++) {
 		console.log(list_el[i][1])
 		var currDate = new Date(list_el[i][1])
+		console.log(currDate)
 		var dateDifference;
 		if (today < currDate) {
 			dateDifference = today - currDate;
