@@ -226,7 +226,7 @@ main {
 }
 
 .task-list {
-  padding: 1rem;
+  padding: 0;
 }
 
 .task-list h2 {
