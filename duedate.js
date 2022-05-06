@@ -109,6 +109,6 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 	document.getElementById("head").innerHTML = "The Next Assignment To Turn In:" 
 	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
 	document.getElementById('duedate').innerHTML = currTaskName + " Due"
-	document.getElementById('toWork').innerHTML = "Work " + toWork.toFixed(2) + " hours";
+	document.getElementById('toWork').innerHTML = "Work " + toWork.toFixed(2) + " hours each day";
 }
 }
