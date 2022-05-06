@@ -14,7 +14,8 @@
   height: 4em;
   background-color: var(--dark);
   margin: 0 auto;
-  border-radius: 50px;
+  width: 100%;
+  border-radius: 10px;
 }
   
 html {
@@ -151,6 +152,16 @@ input, button {
   font-size: 1rem;
 }
 
+#new-task-duration {
+  flex: 1 1 0%;
+  background-color: var(--light);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--dark);
+  font-size: 1rem;
+}
+
 #new-task-name::placeholder{
   color: var(--lightblue);
 }
@@ -163,6 +174,10 @@ input, button {
   margin-right: 1rem;
   color: var(--dark);
   font-size: 1rem;
+}
+
+#new-task-duration::placeholder{
+  color: var(--lightblue);
 }
 
 #new-task-date::placeholder{
@@ -241,6 +256,15 @@ main {
   font-weight: 700;
   text-transform: uppercase;
   transition: 0.4s;
+}
+
+.vertical-stack {
+  display: flex;
+  align-items: center;
+}
+
+.maps-layout{
+  flex-direction: row;
 }
 
 .task .actions button:hover{
