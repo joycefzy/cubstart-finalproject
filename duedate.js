@@ -104,9 +104,7 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 	//^^^placeholders
 	for (let i = 0; i < list_el.length; i++) {
 		console.log(list_el[i][1])
-		var currDatesArr = (list_el[i][1].taskDate).split('-');
-		var currDate = new Date(currDatesArr[2], currDatesArr[1], currDatesArr[0])
-		console.log("currDatesArr:" + currDatesArr)
+		var currDate = new Date(list_el[i][1])
 		var dateDifference;
 		if (today < currDate) {
 			dateDifference = today - currDate;
@@ -116,7 +114,7 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 		}
 		if (dateDifference < currDateDiff) {
 			currDateDiff = dateDifference;
-			currTaskName = list.el[i].taskName
+			currTaskName = list_el[i][2]
 		}
 	}
 	console.log("days differce:" + currDateDiff)
