@@ -5,26 +5,18 @@ window.addEventListener('load', () => {
 	const inputType = document.querySelector("#task-types");
 	const inputTime = document.querySelector("#new-task-duration");
 	const list_el = document.querySelector("#tasks");
-
-	let taskList = new Array();
-
-	if (sessionStorage.getItem('taskList')) {
-		taskList = JSON.parse(sessionStorage.getItem('taskList'));
-	} else {
-		
-	}
-
-	
+	const taskList = new Array();
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
+        console.log("loaded");
 
         const taskName = inputName.value;
         const taskDate = inputDate.value;
 		const taskType = inputType.value;
 		const taskTime = inputTime.value;
-		const task = taskType + " Due: " + taskDate + ", " + taskName ;
-		const taskL = [taskName, taskDate, taskType, taskTime]
+		const task = taskType + " Due: " + taskName + ",\t" + taskDate ;
+		const taskL = [taskType, taskDate, taskName, taskTime]
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
@@ -62,8 +54,6 @@ window.addEventListener('load', () => {
 		taskList.push(taskL)
 		taskShort(taskList);
 
-		// sessionStorage.setItem('taskList', taskList);
-
 		inputName.value = '';
         inputDate.value = '';
 		inputTime.value = '';
@@ -76,30 +66,20 @@ window.addEventListener('load', () => {
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
-				index = taskList.indexOf(taskL);
-				taskList[index] = [inputName.value, inputDate.value, inputType.value, inputTime.value]
-				// sessionStorage.setItem('taskList', taskList);
+				taskList[indexOf(taskL)] = [taskType, taskDate, taskName, taskTime]
 			}
-
-			// sessionStorage.setItem('taskList', taskList);
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
 			list_el.removeChild(task_el);
 			index = taskList.indexOf(taskL);
 			taskList.splice(index, 1);
-			// sessionStorage.setItem('taskList', taskList);
 		});
-
-		
 	});
-
-	sessionStorage.setItem('taskList', JSON.stringify(taskList));
 });
 
 
 //updates home page with closest due date
-
 	function taskShort(list_el) {
 	if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)){
 		document.getElementById('duedays').innerHTML = "No Assignments upcoming!";
@@ -123,7 +103,6 @@ window.addEventListener('load', () => {
 				currTaskName = list_el[i][2]
 				currTime = list_el[i][3]
 			}
-
 		}
 		toWork = currTime / currDateDiff
 		document.getElementById("head").innerHTML = "The Next Assignment To Turn In:" 
@@ -131,22 +110,4 @@ window.addEventListener('load', () => {
 		document.getElementById('duedate').innerHTML = currTaskName + " Due"
 		document.getElementById('toWork').innerHTML = "Work " + toWork.toFixed(2) + " hours each day";
 	}
-	toWork = currTime / currDateDiff
-// <<<<<<< HEAD
-// 	console.log(toWork)
-// 	//CAN'T SET PROPERTIES TO A NULL ERROR
-// 	//document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
-// 	//document.getElementById('duedate').innerHTML = currTaskName + " Due"
-// 	//document.getElementById('howLong').innerHTML = "Work " + toWork;
-// 	var currDateDiff = 999999
-// 	var currTaskName = "default"
-// 	var currTime = 0
-// =======
-	document.getElementById("head").innerHTML = "The Next Assignment To Turn In:" 
-	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
-	document.getElementById('duedate').innerHTML = currTaskName + " Due"
-	document.getElementById('toWork').innerHTML = "Work " + toWork.toFixed(2) + " hours";
 }
-
-}
-
