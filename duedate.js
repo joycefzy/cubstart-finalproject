@@ -73,7 +73,9 @@ window.addEventListener('load', () => {
 
 		task_delete_el.addEventListener('click', (e) => {
 			list_el.removeChild(task_el);
-			talkList.removeChild(taskList.indexOf(taskL))
+			//doesn't delete correctly from list
+			index = taskList.indexOf(taskL);
+			taskList.splice(index, 1);
 		});
 	});
 });
@@ -123,11 +125,12 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 			currTime = list_el[i][3]
 		}
 	}
-	console.log("days differce:" + currDateDiff)
-	console.log("task name:" + currTaskName)
+	console.log("days differce: " + currDateDiff)
+	console.log("task name: " + currTaskName)
 	toWork = currTime / currDateDiff
-	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
-	document.getElementById('duedate').innerHTML = currTaskName + " Due"
-	document.getElementById('').innerHTML = "Work " + toWork;
+	console.log(toWork)
+	//document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
+	//document.getElementById('duedate').innerHTML = currTaskName + " Due"
+	//document.getElementById('').innerHTML = "Work " + toWork;
 }
 }
