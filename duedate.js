@@ -56,7 +56,6 @@ window.addEventListener('load', () => {
 
 		inputName.value = '';
         inputDate.value = '';
-		inputType.value = '';
 		inputTime.value = '';
 
 		task_edit_el.addEventListener('click', (e) => {
@@ -73,7 +72,6 @@ window.addEventListener('load', () => {
 
 		task_delete_el.addEventListener('click', (e) => {
 			list_el.removeChild(task_el);
-			//doesn't delete correctly from list
 			index = taskList.indexOf(taskL);
 			taskList.splice(index, 1);
 		});
@@ -83,14 +81,11 @@ window.addEventListener('load', () => {
 
 //updates home page with closest due date
 function taskShort(list_el) {
-console.log("taskShort loaded" + list_el)
 if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)){
-	console.log("list undef")
 	document.getElementById('duedays').innerHTML = "No Assignments upcoming!";
 	//document.getElementById('duedate').innerHTML = "";
 } else {
 	const today = new Date();
-	console.log("list good, length:" + list_el.length + "list:" + list_el)
 	var currDateDiff = 999999
 	var currTaskName = "default"
 	for (let i = 0; i < list_el.length; i++) {
@@ -105,17 +100,15 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 			dateDifference = currDate - today;
 		}
 		if (dateDifference < currDateDiff) {
-			currDateDiff = Math.ceil(dateDifference / (1000 * 3600 * 24))+ 1;
+			currDateDiff = Math.ceil(Math.abs(dateDifference / (1000 * 3600 * 24)))+ 1;
 			currTaskName = list_el[i][2]
 			currTime = list_el[i][3]
 		}
 	}
-	console.log("days differce: " + currDateDiff)
-	console.log("task name: " + currTaskName)
 	toWork = currTime / currDateDiff
-	console.log(toWork)
-	//document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
-	//document.getElementById('duedate').innerHTML = currTaskName + " Due"
-	//document.getElementById('').innerHTML = "Work " + toWork;
+	document.getElementById("head").innerHTML = "The Next Assignment To Turn In:" 
+	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
+	document.getElementById('duedate').innerHTML = currTaskName + " Due"
+	document.getElementById('toWork').innerHTML = "Work " + toWork.toFixed(2) + " hours";
 }
 }
