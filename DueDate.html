@@ -27,10 +27,9 @@
         </ul>
       </nav>
     </header>
-  <!-- <ul id="tasks"></ul> -->
         
     <div class="assignment-box">
-        <h1>Add Assignment:</h1>
+        <h1>Add Assignment and Due Date:</h1>
     </div>
     <div class="assignment-box">
       <label for="task-types"></label>
@@ -49,7 +48,7 @@
         placeholder="New assignment" />
       
         <!-- <label for="new-task-date">When is it due?</label> -->
-        <input type="date" id="new-task-date" name="new-task-date" placeholder = "Due Date: ">
+        <input type="date" id="new-task-date" name="new-task-date" placeholder = "Due Date: " onfocus="(this.type='date')">
         <input
           type="text"
           id="new-task-duration"

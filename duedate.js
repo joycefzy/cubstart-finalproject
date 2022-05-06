@@ -5,18 +5,26 @@ window.addEventListener('load', () => {
 	const inputType = document.querySelector("#task-types");
 	const inputTime = document.querySelector("#new-task-duration");
 	const list_el = document.querySelector("#tasks");
-	const taskList = new Array();
+
+	let taskList = new Array();
+
+	if (sessionStorage.getItem('taskList')) {
+		taskList = JSON.parse(sessionStorage.getItem('taskList'));
+	} else {
+		
+	}
+
+	
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
-        console.log("loaded");
 
         const taskName = inputName.value;
         const taskDate = inputDate.value;
 		const taskType = inputType.value;
 		const taskTime = inputTime.value;
 		const task = taskType + " Due: " + taskDate + ", " + taskName ;
-		const taskL = [taskType, taskDate, taskName, taskTime]
+		const taskL = [taskName, taskDate, taskType, taskTime]
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
@@ -54,9 +62,10 @@ window.addEventListener('load', () => {
 		taskList.push(taskL)
 		taskShort(taskList);
 
+		// sessionStorage.setItem('taskList', taskList);
+
 		inputName.value = '';
         inputDate.value = '';
-		inputType.value = '';
 		inputTime.value = '';
 
 		task_edit_el.addEventListener('click', (e) => {
@@ -67,17 +76,26 @@ window.addEventListener('load', () => {
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
-				taskList[indexOf(taskL)] = [taskType, taskDate, taskName, taskTime]
+				index = taskList.indexOf(taskL);
+				taskList[index] = [inputName.value, inputDate.value, inputType.value, inputTime.value]
+				// sessionStorage.setItem('taskList', taskList);
 			}
+
+			// sessionStorage.setItem('taskList', taskList);
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
 			list_el.removeChild(task_el);
-			//doesn't delete correctly from list
+			//maybe wrong index of?
 			index = taskList.indexOf(taskL);
 			taskList.splice(index, 1);
+			// sessionStorage.setItem('taskList', taskList);
 		});
+
+		
 	});
+
+	sessionStorage.setItem('taskList', JSON.stringify(taskList));
 });
 
 //Index Functions, like asking your name and filling in the box info.
@@ -106,22 +124,21 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 } else {
 	const today = new Date();
 	console.log("list good, length:" + list_el.length + "list:" + list_el)
-	var currDateDiff = 999999
-	var currTaskName = "default"
+
 	for (let i = 0; i < list_el.length; i++) {
 		console.log(list_el[i][1])
 		var currDate = new Date(list_el[i][1])
 		console.log(currDate)
 		var dateDifference;
 		if (today < currDate) {
-			dateDifference = today - currDate;
+			dateDifference = today.getTime() - currDate.getTime();
 		}
 		else{
-			dateDifference = currDate - today;
+			dateDifference = currDate.getTime() - today.getTime();
 		}
 		if (dateDifference < currDateDiff) {
-			currDateDiff = Math.ceil(dateDifference / (1000 * 3600 * 24))+ 1;
-			currTaskName = list_el[i][2]
+			currDateDiff = Math.ceil(Math.abs(dateDifference / (1000 * 3600 * 24)))+ 1;
+			currTaskName = list_el[i][0]
 			currTime = list_el[i][3]
 		}
 	}
@@ -129,8 +146,13 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 	console.log("task name: " + currTaskName)
 	toWork = currTime / currDateDiff
 	console.log(toWork)
+	//CAN'T SET PROPERTIES TO A NULL ERROR
 	//document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
 	//document.getElementById('duedate').innerHTML = currTaskName + " Due"
-	//document.getElementById('').innerHTML = "Work " + toWork;
+	//document.getElementById('howLong').innerHTML = "Work " + toWork;
+	var currDateDiff = 999999
+	var currTaskName = "default"
+	var currTime = 0
 }
 }
+
