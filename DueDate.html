@@ -30,7 +30,7 @@
   <!-- <ul id="tasks"></ul> -->
         
     <div class="assignment-box">
-        <h1>My Assignments:</h1>
+        <h1>Add Assignment:</h1>
     </div>
     <div class="assignment-box">
       <label for="task-types"></label>
@@ -47,10 +47,15 @@
         id="new-task-name"
         name="new-task-name" 
         placeholder="New assignment" />
-      <div class = "vertical stack">
-        <label for="new-task-date">When is it due?</label>
-        <input type="date" id="new-task-date" name="new-task-date">
-      </div>
+      
+        <!-- <label for="new-task-date">When is it due?</label> -->
+        <input type="date" id="new-task-date" name="new-task-date" placeholder = "Due Date: ">
+        <input
+          type="text"
+          id="new-task-duration"
+          name="new-task-duration" 
+          placeholder="Time needed (hours)" />    
+      
      
       <!-- <input
         type="text"
@@ -61,6 +66,7 @@
         type="submit"
         id="new-task-submit"
         value="add" />
+      
     </form>
 <!--
         <input
