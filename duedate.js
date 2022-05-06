@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
 	const inputName = document.querySelector("#new-task-name");
     const inputDate = document.querySelector("#new-task-date");
 	const inputType = document.querySelector("#task-types");
+	const inputTime = document.querySelector("#new-task-duration");
 	const list_el = document.querySelector("#tasks");
 	const taskList = new Array();
 
@@ -13,8 +14,9 @@ window.addEventListener('load', () => {
         const taskName = inputName.value;
         const taskDate = inputDate.value;
 		const taskType = inputType.value;
+		const taskTime = inputTime.value;
 		const task = taskType + " Due: " + taskDate + ", " + taskName ;
-		const taskL = [taskType, taskDate, taskName]
+		const taskL = [taskType, taskDate, taskName, taskTime]
 
 		const task_el = document.createElement('div');
 		task_el.classList.add('task');
@@ -54,6 +56,8 @@ window.addEventListener('load', () => {
 
 		inputName.value = '';
         inputDate.value = '';
+		inputType.value = '';
+		inputTime.value = '';
 
 		task_edit_el.addEventListener('click', (e) => {
 			if (task_edit_el.innerText.toLowerCase() == "edit") {
@@ -63,11 +67,13 @@ window.addEventListener('load', () => {
 			} else {
 				task_edit_el.innerText = "Edit";
 				task_input_el.setAttribute("readonly", "readonly");
+				taskList[indexOf(taskL)] = [taskType, taskDate, taskName, taskTime]
 			}
 		});
 
 		task_delete_el.addEventListener('click', (e) => {
 			list_el.removeChild(task_el);
+			talkList.removeChild(taskList.indexOf(taskL))
 		});
 	});
 });
@@ -88,7 +94,7 @@ function askName() {
         document.getElementById("n").innerHTML = "Welcome, Stranger!";
     }
 }
-//Bringing in a div element doesn't help me I need them in an array or something
+//updates home page with closest due date
 function taskShort(list_el) {
 console.log("taskShort loaded" + list_el)
 if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)){
@@ -97,11 +103,9 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 	//document.getElementById('duedate').innerHTML = "";
 } else {
 	const today = new Date();
-	//TODO calculate numDays
 	console.log("list good, length:" + list_el.length + "list:" + list_el)
 	var currDateDiff = 999999
 	var currTaskName = "default"
-	//^^^placeholders
 	for (let i = 0; i < list_el.length; i++) {
 		console.log(list_el[i][1])
 		var currDate = new Date(list_el[i][1])
@@ -113,13 +117,16 @@ if (typeof list_el === 'undefined' || (list_el == null) || (list_el.length == 0)
 			dateDifference = currDate - today;
 		}
 		if (dateDifference < currDateDiff) {
-			currDateDiff = dateDifference;
+			currDateDiff = Math.ceil(dateDifference / (1000 * 3600 * 24))+ 1;
 			currTaskName = list_el[i][2]
+			currTime = list_el[i][3]
 		}
 	}
 	console.log("days differce:" + currDateDiff)
 	console.log("task name:" + currTaskName)
+	toWork = currTime / currDateDiff
 	document.getElementById('duedays').innerHTML = "In " + currDateDiff + " days";
-	document.getElementById('duedate').innerHTML = currTaskName + "Due"
+	document.getElementById('duedate').innerHTML = currTaskName + " Due"
+	document.getElementById('').innerHTML = "Work " + toWork;
 }
 }
