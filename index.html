@@ -30,6 +30,9 @@
               </nav>
             </header>
         </body>
+        
+        <h2 class="clock"><span id="time"> </span></h2>
+    <!-- the DIV that will contain the widget -->
 
     <section>
         <header class="welcome">
@@ -41,6 +44,29 @@
             <a href="DueDate.html" class="btn">More</a>
         </div>
     </section>
-    <script src="duedate.js"></script>
+
+    <div class="weatherWidget"></div>
+      <script>
+        window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+        window.weatherWidgetConfig.push({
+            selector:".weatherWidget",
+            apiKey:"KHEJ834W4EK4R3H585GM5E846", //Sign up for your personal key
+            location:"Berkeley, CA", //Enter an address
+            unitGroup:"us", //"us" or "metric"
+            forecastDays:5, //how many days forecast to show
+            title:"Berkeley, CA", //optional title to show in the 
+            showTitle:true, 
+            showConditions:true
+        });
+        
+        (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+      </script>
+
+    <script src="index.js"></script>
 </html>
     

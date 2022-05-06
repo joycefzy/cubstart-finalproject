@@ -126,8 +126,22 @@ a {
 /* Main page */
 .welcome {
   font-size: 3rem;
-  margin-top: 250px;
+  margin-top: 150px;
   color: var(--light);
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  margin-left: 60pc;
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+  width: 25%;
+  padding: 1rem;
+  font-size: 2rem;
+  margin-top: 50px;
+  color: var(--darkyellow);
+  border-radius: 1rem;
 }
 
 /* Due Date page */

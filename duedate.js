@@ -80,22 +80,7 @@ window.addEventListener('load', () => {
 	});
 });
 
-//Index Functions, like asking your name and filling in the box info.
-function askName() {
-    console.log("ran askName")
-    let name = sessionStorage.getItem('name');
 
-    if (name === null) {
-        name = prompt("Please enter your name");
-    }
-
-    if (name != null) {
-        document.getElementById('n').innerHTML = "Welcome " + name + "!";
-        sessionStorage.setItem('name', name);
-    } else {
-        document.getElementById("n").innerHTML = "Welcome, Stranger!";
-    }
-}
 //updates home page with closest due date
 function taskShort(list_el) {
 console.log("taskShort loaded" + list_el)
